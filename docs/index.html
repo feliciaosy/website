@@ -18,6 +18,21 @@
       background-color: white;
       color: #333;
     }
+    .logo-container {
+  background: rgba(255, 255, 255, 0.9); /* white with slight transparency */
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: inline-block;  /* shrink-wrap around the logo */
+  margin: 0 auto 1rem;
+  position: relative; /* to stay above overlay */
+  z-index: 3; /* ensure above black overlay */
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  display: block;
+}
 
     header {
   position: relative;
@@ -480,13 +495,15 @@ header * {
 </head>
 
 <body>
-  <header>
+ <header>
+  <div class="logo-container">
     <img src="images/era2.jpg" alt="ERA Logo" class="logo" />
-    <h1>Magdeline Wong</h1>
-    <p>Helping you making the right move with care & commitment</p>
-    <p class="small-text">Guiding families and individuals with integrity, care, and real estate expertise that puts you first</p>
-  </header>
-
+  </div>
+  <h1>Magdeline Wong</h1>
+  <p>Helping you making the right move with care & commitment</p>
+  <p class="small-text">Guiding families and individuals with integrity, care, and real estate expertise that puts you first</p>
+</header>
+  
   <nav>
   <a href="#home">Home</a>
   <a href="#about">About</a>
