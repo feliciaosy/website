@@ -157,10 +157,13 @@
   .listings-gallery {
     grid-template-columns: 1fr;
   }
-  .project-gallery {
-    grid-template-columns: 1fr 1fr;
   }
-}
+    .project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px; /* Adds space between items */
+  }
+
 
 
     .overlay-text, .project-overlay-text {
@@ -390,6 +393,31 @@
 .whatsapp-float:hover {
   background-color: #128c4a;
 }
+#area-buttons {
+  margin-bottom: 20px;
+}
+
+#area-buttons button {
+  padding: 6px 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#area-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#area-buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
 
   </style>
 </head>
@@ -481,36 +509,14 @@
   <!-- Projects Section -->
 <section class="projects" id="projects">
   <h3>Projects</h3>
-  <div class="project-gallery">
-    <a href="https://one-sophia.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-      <img src="images/onesophia.jpg" alt="One Sophia" />
-      <div class="project-overlay-text">
-        <h4>One Sophia</h4>
-      </div>
-    </a>
+  <!-- Area filter buttons will appear here -->
+  <div id="area-buttons" style="margin-bottom: 20px;"></div>
 
-    <a href="https://union-square-residences.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-      <img src="images/unionsquare.jpg" alt="Union Square Residences 誉岭峰" />
-      <div class="project-overlay-text">
-        <h4>Union Square Residences</h4>
-        <h4>誉岭峰</h4>
-      </div>
-    </a>
+  <!-- All projects gallery -->
+  <div class="project-gallery" id="all-projects"></div>
 
-    <a href="https://novo-place.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-      <img src="images/novoplace.jpg" alt="Novo Place" />
-      <div class="project-overlay-text">
-        <h4>Novo Place</h4>
-      </div>
-    </a>
-
-    <a href="https://bagnall-haus.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-      <img src="images/bagnallhaus.jpg" alt="Bagnall Haus" />
-      <div class="project-overlay-text">
-        <h4>Bagnall Haus</h4>
-      </div>
-    </a>
-  </div>
+  <!-- Filtered projects gallery (hidden initially) -->
+  <div class="project-gallery" id="filtered-projects" style="display: none;"></div>
 </section>
 
 
@@ -648,6 +654,92 @@
       }
     }).catch(() => alert('Oops! There was a problem submitting your form.'));
   });
+</script>
+<script>
+  // Replace this with your actual projects data
+  const projects = [
+    {
+      id: 1,
+      name: "One Sophia",
+      link: "https://one-sophia.eraprojects.sg/",
+      img: "images/onesophia.jpg",
+      alt: "One Sophia",
+      area: "Residential"
+    },
+    {
+      id: 2,
+      name: "Union Square Residences",
+      link: "https://union-square-residences.eraprojects.sg/",
+      img: "images/unionsquare.jpg",
+      alt: "Union Square Residences 誉岭峰",
+      area: "Residential"
+    },
+    {
+      id: 3,
+      name: "Novo Place",
+      link: "https://novo-place.eraprojects.sg/",
+      img: "images/novoplace.jpg",
+      alt: "Novo Place",
+      area: "Commercial"
+    }
+    // Add more projects here...
+  ];
+
+  const allProjectsDiv = document.getElementById("all-projects");
+  const filteredProjectsDiv = document.getElementById("filtered-projects");
+  const areaButtonsDiv = document.getElementById("area-buttons");
+
+  function createProjectHTML(project) {
+    return `
+      <a href="${project.link}" target="_blank" rel="noopener noreferrer">
+        <img src="${project.img}" alt="${project.alt}" />
+        <div class="project-overlay-text">
+          <h4>${project.name}</h4>
+        </div>
+      </a>
+    `;
+  }
+
+  function renderProjects(projectsList, container) {
+    container.innerHTML = projectsList.map(createProjectHTML).join("");
+  }
+
+  function renderAreaButtons() {
+    const areas = [...new Set(projects.map(p => p.area))];
+
+    // Add an "All" button
+    const allBtn = document.createElement("button");
+    allBtn.textContent = "All";
+    allBtn.classList.add("active");
+    allBtn.onclick = () => {
+      setActiveButton(allBtn);
+      filteredProjectsDiv.style.display = "none";
+      allProjectsDiv.style.display = "flex";  // Assuming your gallery uses flexbox or grid
+    };
+    areaButtonsDiv.appendChild(allBtn);
+
+    areas.forEach(area => {
+      const btn = document.createElement("button");
+      btn.textContent = area;
+      btn.onclick = () => {
+        setActiveButton(btn);
+        const filtered = projects.filter(p => p.area === area);
+        renderProjects(filtered, filteredProjectsDiv);
+        filteredProjectsDiv.style.display = "flex"; // Show filtered projects
+        allProjectsDiv.style.display = "none"; // Hide all projects
+      };
+      areaButtonsDiv.appendChild(btn);
+    });
+  }
+
+  function setActiveButton(button) {
+    Array.from(areaButtonsDiv.children).forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+  }
+
+  // Initial rendering
+  renderProjects(projects, allProjectsDiv);
+  renderAreaButtons();
 </script>
 
   
