@@ -654,11 +654,15 @@ header p {
   <section class="contact" id="contact">
     <h3>Get in Touch</h3>
     <div class="contact-wrapper">
-      <form>
+      <form <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST"> 
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <input type="tel" name="mobile" placeholder="=Mobile Number" pattern="[0-9+\-\s]{7,15}" required />
         <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
+
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_replyto" value="feliciaosy31@gmail.com" />
+
         <button type="submit">Send Message</button>
       </form>
       <div id="confirmationMessage" style="display:none; color: green; margin-top: 1rem; font-weight: bold;">
@@ -714,21 +718,29 @@ header p {
   });
 </script>
 
-  <!-- your other HTML here -->
-
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
+  const form = document.getElementById('contactForm');
   const confirmation = document.getElementById('confirmationMessage');
-  confirmation.style.display = 'block';
 
-  this.reset();
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // stop default form submit
 
-  setTimeout(() => {
-    confirmation.style.display = 'none';
-  }, 5000);
-});
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        confirmation.style.display = 'block';  // show confirmation
+        form.reset();                          // clear form
+        setTimeout(() => {
+          confirmation.style.display = 'none'; // hide after 5s
+        }, 5000);
+      } else {
+        alert('Oops! There was a problem submitting your form.');
+      }
+    }).catch(() => alert('Oops! There was a problem submitting your form.'));
+  });
 </script>
 
   
