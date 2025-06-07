@@ -746,8 +746,9 @@
   allBtn.classList.add("active");
   allBtn.onclick = () => {
     setActiveButton(allBtn);
-    filteredProjectsDiv.style.display = "grid";
-    allProjectsDiv.style.display = "grid";  
+    filteredProjectsDiv.innerHTML = ""; // Clear filtered content
+    filteredProjectsDiv.style.display = "none"; // Hide filtered grid
+    allProjectsDiv.style.display = "grid";  // Show all projects
   };
   areaButtonsDiv.appendChild(allBtn);
 
@@ -757,13 +758,15 @@
     btn.onclick = () => {
       setActiveButton(btn);
       const filtered = projects.filter(p => p.area === area);
+      filteredProjectsDiv.innerHTML = ""; // Clear previous content
       renderProjects(filtered, filteredProjectsDiv);
-      filteredProjectsDiv.style.display = "grid"; // <-- changed here
-      allProjectsDiv.style.display = "none";
+      filteredProjectsDiv.style.display = "grid"; // Show filtered projects
+      allProjectsDiv.style.display = "none"; // Hide all projects
     };
     areaButtonsDiv.appendChild(btn);
   });
 }
+
 
   function setActiveButton(button) {
     Array.from(areaButtonsDiv.children).forEach(b => b.classList.remove("active"));
