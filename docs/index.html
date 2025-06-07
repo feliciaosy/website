@@ -56,7 +56,8 @@
       padding: 1rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     nav a {
@@ -64,6 +65,7 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -158,6 +160,17 @@
   }
   .project-gallery {
     grid-template-columns: 1fr;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;  
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;    
   }
 }
 
