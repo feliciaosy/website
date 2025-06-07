@@ -166,6 +166,32 @@ header p {
   border-radius: 8px;
 }
 
+    .listings-gallery .overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 15px;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent */
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.listings-gallery .overlay-text h4 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.listings-gallery .overlay-text p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+
+
     .projects {
       max-width: 1200px;
       margin: 0 auto;
@@ -472,17 +498,19 @@ header p {
   <section class="listings" id="listings">
     <h3>Featured Listings</h3>
     <div class="listings-gallery">
-      <a href="https://one-sophia.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="images/onesophia.jpg" alt="One Sophia" />
+      <a href="https://www.propertyguru.com.sg/listing/for-sale-paya-lebar-gardens-25638302" target="_blank" rel="noopener noreferrer">
+        <img src="images/onesophia.jpg" alt="Paya Lebar" />
+        <div class="overlay-text">Paya Lebar Gardens [FOR SALE]</div>
       </a>
       <a href="https://union-square-residences.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
         <img src="images/unionsquare.jpg" alt="Union Square Residences 誉岭峰" />
-      </a>
-      <a href="https://novo-place.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="images/novoplace.jpg" alt="Novo Place" />
-      </a>
-      <a href="https://bagnall-haus.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="images/bagnallhaus.jpg" alt="Bagnall Haus" />
+        <div class="overlay-text">
+          <h4>Paya Lebar Gardens</h4>
+          <p> FOR SALE <p>
+          <p> LANDED <p>
+          <p>4 Bed · 2 Bath · 1,649 sqft · S$ 2,304 psf </p>
+          <p>$3,500,000</p>
+         </div>
       </a>
     </div>
   </section>
