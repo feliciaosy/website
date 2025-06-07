@@ -112,6 +112,60 @@ header p {
       font-size: 1rem;
       cursor: pointer;
     }
+    .listings {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.listings, .contact, .about {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.listings h3, .contact h3, .about h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.listings ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listings li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.listings-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 16px;
+}
+
+.listings-gallery a {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* keeps square aspect ratio */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: white;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.listings-gallery a img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
     .projects {
       max-width: 1200px;
       margin: 0 auto;
@@ -372,6 +426,7 @@ header p {
   <nav>
   <a href="#home">Home</a>
   <a href="#about">About</a>
+  <a href="#listings"> Featured Listings</a>
   <a href="#projects">Projects</a>
   <a href="#blogs">Blogs</a>  
   <a href="#contact">Contact</a>
@@ -413,6 +468,25 @@ header p {
     </div>
   </section>
 
+  <!-- Listings Section -->
+  <section class="listings" id="listings">
+    <h3>Featured Listings</h3>
+    <div class="listings-gallery">
+      <a href="https://one-sophia.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
+        <img src="images/onesophia.jpg" alt="One Sophia" />
+      </a>
+      <a href="https://union-square-residences.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
+        <img src="images/unionsquare.jpg" alt="Union Square Residences 誉岭峰" />
+      </a>
+      <a href="https://novo-place.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
+        <img src="images/novoplace.jpg" alt="Novo Place" />
+      </a>
+      <a href="https://bagnall-haus.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
+        <img src="images/bagnallhaus.jpg" alt="Bagnall Haus" />
+      </a>
+    </div>
+  </section>
+  
   <!-- Projects Section -->
   <section class="projects" id="projects">
     <h3>Projects</h3>
