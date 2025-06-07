@@ -870,7 +870,7 @@ header * {
   }
 
   function renderAreaButtons() {
-  const areas = [...new Set(projects.map(p => p.area))];
+  const areas = [...new Set(projects.map(p => p.area))].sort();
 
   // Add an "All" button
   const allBtn = document.createElement("button");
