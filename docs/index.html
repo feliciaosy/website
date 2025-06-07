@@ -249,6 +249,63 @@
       cursor: pointer;
     }
 
+    .blogs {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.blogs h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.blog-slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.blog-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.blog-post {
+  flex: 0 0 300px; /* fixed width for each blog card */
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+}
+
+.blog-post h4 {
+  margin: 0 0 0.5rem 0;
+}
+
+.blog-post h4 a {
+  color: #8B0000;
+  text-decoration: none;
+}
+.blog-post h4 a:hover {
+  text-decoration: underline;
+}
+
+.blog-post p {
+  font-size: 1rem;
+  color: #444;
+  margin: 0;
+}
+
     .whatsapp-float {
   position: fixed;
   width: 60px;
