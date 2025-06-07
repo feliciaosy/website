@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     html {
-  scroll-behavior: smooth;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -17,6 +17,7 @@
       background-color: #f9f9f9;
       color: #333;
     }
+
     header {
       background-image: url("images/header.jpg");
       background-size: cover;
@@ -25,28 +26,31 @@
       padding: 4rem 2rem;
       text-align: center;
     }
+
     header .logo {
-  display: block;
-  margin: 0 auto 1rem;  /* centers and adds space below */
-  width: 150px;           /* adjust size as needed */
-  height: auto;
-}
-    \header .small-text {
-  font-size: 0.8rem;    /* smaller font size */
-  margin-top: 0.5rem;   /* a little space above */
-  color: white;         /* match your header text color */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* optional, to keep style consistent */
-}
+      display: block;
+      margin: 0 auto 1rem;
+      width: 150px;
+      height: auto;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
+    header .small-text {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
 
-header p {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    header p {
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
     nav {
       background-color: #8B0000;
       padding: 1rem;
@@ -54,15 +58,18 @@ header p {
       justify-content: center;
       gap: 2rem;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .home {
       background-image: url('https://source.unsplash.com/1600x900/?house,real-estate');
       background-size: cover;
@@ -91,136 +98,41 @@ header p {
       font-weight: bold;
     }
 
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      flex: 1;
-    }
-    .contact input, .contact textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 0.4rem;
-      font-size: 1rem;
-    }
-    .contact button {
-      background-color: crimson;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 0.4rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .listings {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.listings, .contact, .about {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.listings h3, .contact h3, .about h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.listings ul {
-  list-style: none;
-  padding: 0;
-}
-
-.listings li {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.listings-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 16px;
-}
-
-.listings-gallery a {
-  display: block;
-  position: relative;
-  width: 100%;
-  padding-top: 100%; /* keeps square aspect ratio */
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: white;
-  border: 2px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.listings-gallery a img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-    .listings-gallery .overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent */
-  color: white;
-  padding: 12px 16px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.listings-gallery .overlay-text h4 {
-  margin: 0 0 6px;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.listings-gallery .overlay-text p {
-  margin: 4px 0;
-  font-size: 0.95rem;
-}
-
-
-    .projects {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .projects, .contact, .about {
+    .listings, .contact, .about, .projects {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: 0 auto;
     }
-    .projects h3, .contact h3, .about h3 {
+
+    .listings h3, .contact h3, .about h3, .projects h3 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
     }
-    .projects ul {
+
+    .listings ul, .projects ul {
       list-style: none;
       padding: 0;
     }
-    .projects li {
+
+    .listings li, .projects li {
       margin-bottom: 1rem;
       font-size: 1.1rem;
     }
 
-    .project-gallery {
+    .listings-gallery, .project-gallery {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .project-gallery a {
+    .listings-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .listings-gallery a, .project-gallery a {
       display: block;
       position: relative;
       width: 100%;
@@ -232,7 +144,7 @@ header p {
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .project-gallery a img {
+    .listings-gallery a img, .project-gallery a img {
       position: absolute;
       top: 0; left: 0;
       width: 100%;
@@ -241,252 +153,94 @@ header p {
       border-radius: 8px;
     }
 
-    .project-gallery .project-overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  padding: 12px 15px;
-  background: rgba(255, 255, 255, 0.75); /* white, semi-transparent */
-  color: #000;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 8px;
-}
+    .overlay-text, .project-overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 12px 16px;
+      text-align: center;
+      border-radius: 8px;
+    }
 
-.project-gallery .project-overlay-text h4 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.project-gallery .project-overlay-text p {
-  margin: 2px 0;
-  font-size: 0.95rem;
-}
+    .project-overlay-text {
+      background: rgba(255, 255, 255, 0.75);
+      color: #000;
+    }
 
     .about-content-fullwidth {
-  background-color: #8B0000;
-  color: white;
-  width: 100vw;          /* full viewport width */
-  position: relative;    /* to allow full width */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 4rem 2rem;
-}
+      background-color: #8B0000;
+      color: white;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: 4rem 2rem;
+    }
 
-.about-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
+    .about-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
 
-.about-image {
-  flex: 1;
-}
+    .about-image {
+      flex: 1;
+    }
 
-.about-image img {
-  max-width: 100%;
-  border-radius: 8px;
-}
+    .about-image img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
 
-.about-text {
-  flex: 2;
-}
-
+    .about-text {
+      flex: 2;
+    }
 
     .contact-wrapper {
       display: flex;
       gap: 3rem;
       flex-wrap: wrap;
     }
+
     .contact-info {
       flex: 1;
       font-size: 1rem;
     }
 
-    footer {
-      background-color: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      background: #fff;
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto 4rem auto;
-    }
-    .testimonials h3 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    .testimonial-cards {
+    .contact form {
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .testimonial-card {
-      max-width: 300px;
-      background: #f5f5f5;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .testimonial-card p {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    .testimonial-card strong {
-      display: block;
-      text-align: right;
-      color: #555;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
     }
 
-    .blogs {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+    .contact input, .contact textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.4rem;
+      font-size: 1rem;
+    }
 
-.blogs h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.blog-slider-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.blog-slider {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 1rem;
-  scrollbar-width: none; /* Firefox */
-}
-
-.blog-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.blog-post {
-  flex: 0 0 300px; /* fixed width for each blog card */
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  scroll-snap-align: start;
-}
-
-.blog-post h4 {
-  margin: 0 0 0.5rem 0;
-}
-
-.blog-post h4 a {
-  color: #8B0000;
-  text-decoration: none;
-}
-
-.blog-post h4 a:hover {
-  text-decoration: underline;
-}
-
-.blog-post p {
-  font-size: 1rem;
-  color: #444;
-  margin: 0;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #8B0000;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 1.5rem;
-  z-index: 10;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.slider-btn:hover {
-  opacity: 1;
-}
-
-.prev-btn {
-  left: 0.5rem;
-}
-
-.next-btn {
-  right: 0.5rem;
-}
-
-    /* Floating WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      width: 60px;
-      height: 60px;
-      background-color: white;
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .contact button {
+      background-color: crimson;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.4rem;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .whatsapp-float:hover {
-      background-color: #1ebe57;
-    }
-    .whatsapp-float img {
-      width: 35px;
-      height: 35px;
-    }
-
-    #backToTopBtn {
-  display: none; /* hidden by default */
-  position: fixed;
-  bottom: 90px;  /* above whatsapp (20px + 60px + 10px gap) */
-  right: 20px;   /* align horizontally with whatsapp */
-  z-index: 1000;
-  font-size: 24px;
-  border: none;
-  outline: none;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  cursor: pointer;
-  padding: 12px 16px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-}
-
-#backToTopBtn:hover {
-  background-color: rgba(0,0,0,0.9);
-}
-
   </style>
 </head>
+
 <body>
   <header>
     <img src="images/era2.jpg" alt="ERA Logo" class="logo" />
