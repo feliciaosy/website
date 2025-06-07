@@ -655,12 +655,15 @@ header p {
     <h3>Get in Touch</h3>
     <div class="contact-wrapper">
       <form>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="tel" name="mobile" placeholder="Your Mobile Number" pattern="[0-9+\-\s]{7,15}" required />
-        <textarea name="message" placeholder="How can we help you?" rows="5" required></textarea>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="mobile" placeholder="=Mobile Number" pattern="[0-9+\-\s]{7,15}" required />
+        <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
         <button type="submit">Send Message</button>
       </form>
+      <div id="confirmationMessage" style="display:none; color: green; margin-top: 1rem; font-weight: bold;">
+      Your message has been sent! Thank you.
+      </div>
       <div class="contact-info">
         <p><strong>Phone:</strong> <a href="tel:+6581831023">+65 8183 1023</a></p>
         <p><strong>Email:</strong> <a href="mailto:magwongproperty@gmail.com">magwongproperty@gmail.com</a></p>
@@ -709,6 +712,23 @@ header p {
   backToTopBtn.addEventListener("click", function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+</script>
+
+  <!-- your other HTML here -->
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const confirmation = document.getElementById('confirmationMessage');
+  confirmation.style.display = 'block';
+
+  this.reset();
+
+  setTimeout(() => {
+    confirmation.style.display = 'none';
+  }, 5000);
+});
 </script>
 
   
