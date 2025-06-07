@@ -158,14 +158,12 @@
     grid-template-columns: 1fr;
   }
   }
+
     .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px; /* Adds space between items */
   }
-
-
-
     .overlay-text, .project-overlay-text {
       position: absolute;
       top: 50%;
@@ -713,32 +711,32 @@
   }
 
   function renderAreaButtons() {
-    const areas = [...new Set(projects.map(p => p.area))];
+  const areas = [...new Set(projects.map(p => p.area))];
 
-    // Add an "All" button
-    const allBtn = document.createElement("button");
-    allBtn.textContent = "All";
-    allBtn.classList.add("active");
-    allBtn.onclick = () => {
-      setActiveButton(allBtn);
-      filteredProjectsDiv.style.display = "none";
-      allProjectsDiv.style.display = "flex";  // Assuming your gallery uses flexbox or grid
+  // Add an "All" button
+  const allBtn = document.createElement("button");
+  allBtn.textContent = "All";
+  allBtn.classList.add("active");
+  allBtn.onclick = () => {
+    setActiveButton(allBtn);
+    filteredProjectsDiv.style.display = "none";
+    allProjectsDiv.style.display = "grid";  // <-- changed here
+  };
+  areaButtonsDiv.appendChild(allBtn);
+
+  areas.forEach(area => {
+    const btn = document.createElement("button");
+    btn.textContent = area;
+    btn.onclick = () => {
+      setActiveButton(btn);
+      const filtered = projects.filter(p => p.area === area);
+      renderProjects(filtered, filteredProjectsDiv);
+      filteredProjectsDiv.style.display = "grid"; // <-- changed here
+      allProjectsDiv.style.display = "none";
     };
-    areaButtonsDiv.appendChild(allBtn);
-
-    areas.forEach(area => {
-      const btn = document.createElement("button");
-      btn.textContent = area;
-      btn.onclick = () => {
-        setActiveButton(btn);
-        const filtered = projects.filter(p => p.area === area);
-        renderProjects(filtered, filteredProjectsDiv);
-        filteredProjectsDiv.style.display = "flex"; // Show filtered projects
-        allProjectsDiv.style.display = "none"; // Hide all projects
-      };
-      areaButtonsDiv.appendChild(btn);
-    });
-  }
+    areaButtonsDiv.appendChild(btn);
+  });
+}
 
   function setActiveButton(button) {
     Array.from(areaButtonsDiv.children).forEach(b => b.classList.remove("active"));
