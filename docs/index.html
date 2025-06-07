@@ -463,6 +463,28 @@ header p {
       width: 35px;
       height: 35px;
     }
+
+    #backToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1000;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#backToTopBtn:hover {
+  background-color: rgba(0,0,0,0.9);
+}
+
   </style>
 </head>
 <body>
@@ -667,6 +689,25 @@ header p {
 
   nextBtn.addEventListener('click', () => {
     slider.scrollBy({ left: 320, behavior: 'smooth' });
+  });
+</script>
+
+  <button id="backToTopBtn" title="Back to Top">↑</button>
+<script>
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  // Show button when scrolled down 100px
+  window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  // Smooth scroll back to top when clicked
+  backToTopBtn.addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
