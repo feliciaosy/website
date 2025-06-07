@@ -18,21 +18,29 @@
       color: #333;
     }
     header {
-      background-image: url('https://source.unsplash.com/1600x400/?real-estate,city');
+      background-image: url("images/header.jpg");
       background-size: cover;
       background-position: center;
       color: white;
       padding: 4rem 2rem;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    }
-    header p {
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
+    header .logo {
+  display: block;
+  margin: 0 auto 1rem;  /* centers and adds space below */
+  width: 80px;           /* adjust size as needed */
+  height: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+header p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
     nav {
       background-color: #8B0000;
       padding: 1rem;
@@ -366,6 +374,7 @@
 </head>
 <body>
   <header>
+    <img src="images/era2.png" alt="ERA Logo" class="logo" />
     <h1>Magdeline Wong</h1>
     <p>Helping you find the perfect home</p>
   </header>
@@ -388,7 +397,7 @@
   <section class="about" id="about">
     <div class="about-content">
       <div class="about-image">
-        <img src="https://source.unsplash.com/400x400/?portrait" alt="Mag Wong portrait" />
+        <img src="images/headshot.jpg" alt="Mag Wong portrait" />
       </div>
       <div class="about-text">
         <h3>Meet MAG WONG</h3>
@@ -418,17 +427,17 @@
   <section class="projects" id="projects">
     <h3>Projects</h3>
     <div class="project-gallery">
-      <a href="https://one-sophiaone-sophia.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="https://source.unsplash.com/random/400x400?house" alt="One SophiaOne Sophia" />
+      <a href="https://one-sophia.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
+        <img src="images/onesophia.jpg" alt="One Sophia" />
       </a>
       <a href="https://union-square-residences.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="https://source.unsplash.com/random/400x400?apartment" alt="Union Square Residences 誉岭峰" />
+        <img src="images/unionsquare.jpg" alt="Union Square Residences 誉岭峰" />
       </a>
       <a href="https://novo-place.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="https://source.unsplash.com/random/400x400?building" alt="Novo Place" />
+        <img src="images/novoplace.jpg" alt="Novo Place" />
       </a>
       <a href="https://bagnall-haus.eraprojects.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="https://source.unsplash.com/random/400x400?real-estate" alt="Bagnall Haus" />
+        <img src="images/bagnallhaus.jpg" alt="Bagnall Haus" />
       </a>
     </div>
   </section>
