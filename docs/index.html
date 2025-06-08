@@ -722,15 +722,16 @@ header * {
   </a>
 
   <script>
-  const slider = document.querySelector('.blog-slider');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
+document.querySelectorAll('.blog-slider-container, .article-slider-container').forEach(container => {
+  const slider = container.querySelector('.blog-slider, .article-slider');
+  const prevBtn = container.querySelector('.prev-btn');
+  const nextBtn = container.querySelector('.next-btn');
 
-  // Calculate the width of one .blog-post including the horizontal gap
+  // Calculate width of one post + gap (from flex gap property)
   function getPostScrollWidth() {
-    const post = slider.querySelector('.blog-post');
-    const postStyles = window.getComputedStyle(post);
-    const gap = parseFloat(postStyles.marginRight) || 16; // fallback to 16px gap
+    const post = slider.querySelector('.blog-post, .article-post');
+    const sliderStyles = window.getComputedStyle(slider);
+    const gap = parseFloat(sliderStyles.gap) || 16; // fallback gap if not set
     return post.offsetWidth + gap;
   }
 
@@ -743,7 +744,9 @@ header * {
     const scrollAmount = getPostScrollWidth();
     slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
+});
 </script>
+
 
 
   <button id="backToTopBtn" title="Back to Top">↑</button>
