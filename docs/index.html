@@ -309,24 +309,24 @@ header * {
   text-decoration: underline; /* Optional underline on hover */
 }
 
-.blogs, .articles {
+.blogs, .article {
   padding: 4rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.blogs h3, .articles h3 {
+.blogs h3, .article h3 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.blog-slider-container, .articles-slider-container {
+.blog-slider-container, .article-slider-container {
   position: relative;
   overflow: hidden;
 }
 
-.blog-slider, .articles-slider {
+.blog-slider, .article-slider {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
@@ -335,7 +335,7 @@ header * {
   scrollbar-width: none; /* Firefox */
 }
 
-.blog-slider::-webkit-scrollbar, .articles-slider::-webkit-scrollbar {
+.blog-slider::-webkit-scrollbar, .article-slider::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
@@ -513,6 +513,7 @@ header * {
   <a href="#listings"> Featured Listings</a>
   <a href="#projects">Projects</a>
   <a href="#blogs">Blogs</a>  
+  <a href="#article">Research Articles</a>  
   <a href="#testimonials">Testimonials</a> 
   <a href="#contact">Contact</a>
   </nav>
@@ -625,7 +626,7 @@ header * {
 </section>
 
 <!-- Research Articles Section -->
-  <section class="articles" id="articles">
+  <section class="article" id="article">
   <h3>Research Articles</h3>
   <div class="article-slider-container">
     <button class="slider-btn prev-btn" aria-label="Previous article">&lt;</button>
