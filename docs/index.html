@@ -279,6 +279,8 @@ nav a {
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -574,10 +576,9 @@ nav a {
     flex-direction: column;
     gap: 1rem;
     padding: 0;
+    width: 100%;
   }
 }
-
-/* Optional: Add a tablet breakpoint for project gallery */
 @media (max-width: 1024px) and (min-width: 769px) {
   .project-gallery {
     grid-template-columns: repeat(2, 1fr);
