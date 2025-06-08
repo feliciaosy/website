@@ -496,72 +496,91 @@ nav a {
     
 @media (max-width: 768px) {
   body {
-    padding-top: 54px; 
+    padding-top: 54px;
   }
-  
-  .listings-gallery {
-    grid-template-columns: 1fr;
+  .about, .listings, .projects, .blogs, .article, .testimonials, .contact {
+    padding: 2rem 1rem;
   }
+  .listings-gallery,
   .project-gallery {
     grid-template-columns: 1fr;
   }
-  
-  /* Show hamburger */
-  .hamburger {
-    display: block;
+  .slider-btn {
+    font-size: 1.5rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 44px;
+    min-height: 44px;
   }
-
-  /* Hide nav links by default on mobile */
+  .blog-post, .article-post {
+    min-width: 90vw;
+    max-width: 95vw;
+  }
+  #backToTopBtn {
+    right: 1.5rem;
+    bottom: 85px; /* keep above WhatsApp float */
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.5rem;
+    z-index: 2000;
+  }
+  .whatsapp-float {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-float img {
+    width: 28px;
+    height: 28px;
+  }
+  .contact input, .contact textarea {
+    width: 100%;
+    font-size: 1.1rem;
+    min-height: 44px;
+  }
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.3rem 0.5rem;
+  }
   nav a {
     display: none;
     width: 100%;
     text-align: center;
-    padding: 0.5rem 0;
-    white-space: normal;
-    font-size: 1rem;
+    padding: 1.1rem 0;
+    font-size: 1.1rem;
+    min-height: 44px;
   }
-
-  /* When nav has .open class, show links stacked */
   nav.open a {
     display: block;
   }
-
-  /* Stack hamburger and nav */
-  nav {
-    flex-wrap: nowrap;
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    min-width: 44px;
+    min-height: 44px;
+    margin-bottom: 0.5rem;
+  }
+  .about-content {
     flex-direction: column;
-    align-items: stretch;
+    gap: 1.5rem;
   }
-  
-  .slider-btn {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .prev-btn {
-    left: 0.25rem;
-  }
-
-  .next-btn {
-    right: 0.25rem;
-  }
-
-  .contact {
+  .about-image, .about-text {
     width: 100%;
-    left: 0;
-    margin-left: 0;
-    margin-right: 0;
+    max-width: 100%;
+    flex: unset;
   }
-
   .contact-wrapper {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0;
   }
+}
 
-  .contact form,
-  .contact-info {
-    width: 100%;
+/* Optional: Add a tablet breakpoint for project gallery */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
   </style>
