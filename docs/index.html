@@ -720,32 +720,38 @@ header * {
   <a href="https://wa.me/6581831023" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
   </a>
-
+    
   <script>
-document.querySelectorAll('.blog-slider-container, .article-slider-container').forEach(container => {
-  const slider = container.querySelector('.blog-slider, .article-slider');
-  const prevBtn = container.querySelector('.prev-btn');
-  const nextBtn = container.querySelector('.next-btn');
+  document.querySelectorAll('.blog-slider-container, .article-slider-container').forEach(container => {
+    const slider = container.querySelector('.blog-slider, .article-slider');
+    const prevBtn = container.querySelector('.prev-btn');
+    const nextBtn = container.querySelector('.next-btn');
 
-  // Calculate width of one post + gap (from flex gap property)
-  function getPostScrollWidth() {
     const post = slider.querySelector('.blog-post, .article-post');
     const sliderStyles = window.getComputedStyle(slider);
-    const gap = parseFloat(sliderStyles.gap) || 16; // fallback gap if not set
-    return post.offsetWidth + gap;
-  }
+    const gap = parseFloat(sliderStyles.gap) || 16;
+    const postWidth = post.offsetWidth + gap;
 
-  prevBtn.addEventListener('click', () => {
-    const scrollAmount = getPostScrollWidth();
-    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
+    let currentIndex = 0;
 
-  nextBtn.addEventListener('click', () => {
-    const scrollAmount = getPostScrollWidth();
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    function scrollToIndex(index) {
+      const maxIndex = Math.floor(slider.scrollWidth / postWidth) - 1;
+      if(index < 0) index = 0;
+      if(index > maxIndex) index = maxIndex;
+      currentIndex = index;
+      slider.scrollTo({ left: currentIndex * postWidth, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex + 1);
+    });
   });
-});
 </script>
+
 
 
 
