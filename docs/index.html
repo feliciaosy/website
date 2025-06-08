@@ -275,14 +275,10 @@ nav a {
     .contact {
   background-color: #8B0000;
   color: white;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
   padding: 4rem 2rem;
 }
+
 .contact-wrapper {
   max-width: 1000px;
   margin: 0 auto;
@@ -553,6 +549,24 @@ nav a {
   .next-btn {
     right: 0.25rem;
   }
+
+  .contact {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .contact form,
+  .contact-info {
+    width: 100%;
+  }
 }
   </style>
 </head>
@@ -734,7 +748,7 @@ nav a {
   <section class="contact" id="contact">
     <h3>Get in Touch</h3>
     <div class="contact-wrapper">
-      <form <form id="contactForm" action="https://formspree.io/f/xeokeppz" method="POST"> 
+      <form id="contactForm" action="https://formspree.io/f/xeokeppz" method="POST"> 
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9+\-\s]{7,15}" required />
