@@ -332,7 +332,8 @@ header * {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox */;
+  scroll-snap-type: x mandatory;
 }
 
 .blog-slider::-webkit-scrollbar, .article-slider::-webkit-scrollbar {
@@ -718,14 +719,25 @@ header * {
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
 
+  // Calculate the width of one .blog-post including the horizontal gap
+  function getPostScrollWidth() {
+    const post = slider.querySelector('.blog-post');
+    const postStyles = window.getComputedStyle(post);
+    const gap = parseFloat(postStyles.marginRight) || 16; // fallback to 16px gap
+    return post.offsetWidth + gap;
+  }
+
   prevBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: -320, behavior: 'smooth' });
+    const scrollAmount = getPostScrollWidth();
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   });
 
   nextBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: 320, behavior: 'smooth' });
+    const scrollAmount = getPostScrollWidth();
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
 </script>
+
 
   <button id="backToTopBtn" title="Back to Top">↑</button>
 <script>
