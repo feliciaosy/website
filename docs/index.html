@@ -81,31 +81,43 @@ header * {
   z-index: 2;
 }
 
+  nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #8B0000;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: #8B0000;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+/* Nav links styling */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
 
     nav a:hover {
       text-decoration: underline;
     }
+
+    /* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
     .home {
       background-image: url('https://source.unsplash.com/1600x900/?house,real-estate');
@@ -483,6 +495,7 @@ header * {
   background-color: #007bff;
   color: white;
 }
+    
 @media (max-width: 768px) {
   body {
     padding-top: 54px; 
@@ -494,17 +507,34 @@ header * {
   .project-gallery {
     grid-template-columns: 1fr;
   }
-  nav {
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;  
+  
+  /* Show hamburger */
+  .hamburger {
+    display: block;
   }
 
+  /* Hide nav links by default on mobile */
   nav a {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    white-space: normal;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
-    white-space: normal;    
   }
+
+  /* When nav has .open class, show links stacked */
+  nav.open a {
+    display: block;
+  }
+
+  /* Stack hamburger and nav */
+  nav {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
   .slider-btn {
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
@@ -532,6 +562,9 @@ header * {
 </header>
   
   <nav>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    &#9776;
+    </button>
   <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#listings"> Featured Listings</a>
@@ -752,7 +785,17 @@ header * {
   });
 </script>
 
+<script>
+  const nav = document.querySelector('nav');
+const hamburger = nav.querySelector('.hamburger');
 
+hamburger.addEventListener('click', () => {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+</script>
 
 
   <button id="backToTopBtn" title="Back to Top">↑</button>
