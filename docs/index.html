@@ -339,7 +339,7 @@ header * {
   display: none; /* Chrome, Safari */
 }
 
-.blog-post {
+.blog-post, .article-post {
   flex: 0 0 300px; /* fixed width for each blog card */
   background: white;
   border-radius: 8px;
@@ -348,19 +348,19 @@ header * {
   scroll-snap-align: start;
 }
 
-.blog-post h4 {
+.blog-post h4, .article-post h4 {
   margin: 0 0 0.5rem 0;
 }
 
-.blog-post h4 a {
+.blog-post h4 a, .article-post h4 a {
   color: #8B0000;
   text-decoration: none;
 }
-.blog-post h4 a:hover {
+.blog-post h4 a:hover, .article-post h4 a:hover{
   text-decoration: underline;
 }
 
-.blog-post p {
+.blog-post p, h4 a:hover p {
   font-size: 1rem;
   color: #444;
   margin: 0;
@@ -624,7 +624,31 @@ header * {
   </div>
 </section>
 
-
+<!-- Research Articles Section -->
+  <section class="articles" id="articles">
+  <h3>Research Articles</h3>
+  <div class="article-slider-container">
+    <button class="slider-btn prev-btn" aria-label="Previous article">&lt;</button>
+    <div class="article-slider">
+      <article class="article-post">
+        <h4><a href="https://www.era.com.sg/1q-2025-rental-report" target="_blank" rel="noopener noreferrer">1Q 2025 Rental Report</a></h4>
+        <p>Private Home and HDB Rents see a Minor Uptick</p>
+      </article>
+      <article class="article-post">
+        <h4><a href="https://www.era.com.sg/april-2025-monthly-developer-sales-report" target="_blank" rel="noopener noreferrer">April 2025 Monthly Developer Sales Report</a></h4>
+        <p>Investor-Centric Projects Take Centre Stage in New Private Home Market</p>
+      </article>
+      <article class="article-post">
+        <h4><a href="https://www.era.com.sg/1q-2025-ura-real-estate-statistics-singapores-private-home-prices-rose-on-the-back-of-strong-new-home-demand" target="_blank" rel="noopener noreferrer">1Q 2025 URA Real Estate Statistics</a></h4>
+        <p>Singapore’s Private Home Prices Rose on the Back of Strong New Home Demand</p>
+      </article>
+      <article class="article-post">
+        <h4><a href="https://www.era.com.sg/1q-2025-hdb-quarterly-report-hdb-resale-market-reported-moderate-price-growth-amid-y-o-y-decline-in-resale-transactions/" target="_blank" rel="noopener noreferrer">1Q 2025 HDB Quarterly Report</a></h4>
+        <p>HDB Resale Market Reported Moderate Price Growth Amid Y-o-Y Decline in Resale Transactions</p>
+      </article>
+    </div>
+    <button class="slider-btn next-btn" aria-label="Next article">&gt;</button>
+  </div>
 
   <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
