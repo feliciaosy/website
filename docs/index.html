@@ -7,16 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="images/era.png" type="image/png" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       background-color: white;
       color: #333;
     }
+
     .logo-container {
   background: rgba(255, 255, 255, 0.9); /* white with slight transparency */
   padding: 0.02rem 0.1rem;
@@ -544,11 +547,11 @@ nav a {
   }
 
   .prev-btn {
-    left: -1rem;
+    left: 0.25rem;
   }
 
   .next-btn {
-    right: -1rem;
+    right: 0.25rem;
   }
 }
   </style>
