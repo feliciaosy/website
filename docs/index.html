@@ -1100,7 +1100,7 @@ navLinks.forEach(link => {
 
   function renderProjects(projectsList, container, limit = null) {
     const toRender = limit ? projectsList.slice(0, limit) : projectsList;
-    container.innerHTML = projectsList.map(createProjectHTML).join("");
+    container.innerHTML = toRender.map(createProjectHTML).join("");
   }
 
   function renderAreaButtons() {
