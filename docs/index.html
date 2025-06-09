@@ -1113,16 +1113,13 @@ navLinks.forEach(link => {
     allBtn.textContent = "All";
     allBtn.classList.add("active");
     allBtn.onclick = () => {
-  setActiveButton(allBtn);
-  filteredProjectsDiv.innerHTML = "";
-  filteredProjectsDiv.style.display = "none";
-  allProjectsDiv.style.display = "grid";
-  renderProjects(projects, allProjectsDiv, 8); // render limited list again
-  const viewAllContainer = document.getElementById("view-all-container");
-  viewAllContainer.style.display = "block"; // show container
-  viewAllBtn.style.display = "inline-block"; // show button itself
-};
-    
+      setActiveButton(allBtn);
+      filteredProjectsDiv.innerHTML = "";
+      filteredProjectsDiv.style.display = "none";
+      allProjectsDiv.style.display = "grid";
+      renderProjects(projects, allProjectsDiv, 8); // render limited list again
+      document.getElementById("view-all-container").style.display = "block"; // show button
+    };
     areaButtonsDiv.appendChild(allBtn);
 
   areas.forEach(area => {
