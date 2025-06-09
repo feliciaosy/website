@@ -416,6 +416,20 @@ nav a {
 .next-btn {
   right: 0.5rem;
 }
+    .more-text {
+  display: none;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
 .testimonials {
       background: #fff;
       padding: 4rem 2rem;
@@ -757,7 +771,9 @@ nav a {
     <h3>Client Testimonials</h3>
     <div class="testimonial-cards">
       <div class="testimonial-card">
-        <p>"Mag is the best agent I've ever worked with, and I don't say this lightly, having gone through buying and selling 10 real estate properties using many brokers.  Her industry and domain knowledge is as good as any best agent out there, but when there were gaps, she'd follow up immediately to close out the issues.  She always goes the extra mile to ensure I'm comfortable with and aware of what's happening at all times.  Because I'm in the US, it would have been challenging from a process and communication standpoint, but Mag made everything so seamless...I attribute all this to her tenacity and resourcefulness.  And Mag has been the most flexible and accommodating to our time zone difference.  All in all, I would highly recommend Mag to any and all my friends." </p>
+        <p>"Mag is the best agent I've ever worked with, and I don't say this lightly, having gone through buying and selling 10 real estate properties using many brokers.  
+        <span class="more-text">She always goes the extra mile to ensure I'm comfortable with and aware of what's happening at all times. Because I'm in the US, it would have been challenging from a process and communication standpoint, but Mag made everything so seamless...I attribute all this to her tenacity and resourcefulness. And Mag has been the most flexible and accommodating to our time zone difference. All in all, I would highly recommend Mag to any and all my friends. Her industry and domain knowledge is as good as any best agent out there, but when there were gaps, she'd follow up immediately to close out the issues.  She always goes the extra mile to ensure I'm comfortable with and aware of what's happening at all times.  Because I'm in the US, it would have been challenging from a process and communication standpoint, but Mag made everything so seamless...I attribute all this to her tenacity and resourcefulness.  And Mag has been the most flexible and accommodating to our time zone difference.  All in all, I would highly recommend Mag to any and all my friends."</span> 
+        </p>
         <strong>- Dennis W.</strong>
       </div>
       <div class="testimonial-card">
@@ -1164,6 +1180,25 @@ if (projects.length <= 8) {
 }
 </script>
 
+<script>
+  document.querySelectorAll(".read-more-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const moreText = button.previousElementSibling.querySelector(".more-text");
+
+      if (moreText.style.display === "inline") {
+        moreText.style.display = "none";
+        button.textContent = "Read more";
+      } else {
+        moreText.style.display = "inline";
+        button.textContent = "Read less";
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+    
   
 </body>
 </html>
