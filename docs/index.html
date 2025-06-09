@@ -850,6 +850,14 @@ hamburger.addEventListener('click', () => {
   nav.classList.toggle('open');
 });
 
+  const navLinks = nav.querySelectorAll('a');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.setAttribute('aria-expanded', false);
+    nav.classList.remove('open');
+  });
+});
 </script>
 
 
