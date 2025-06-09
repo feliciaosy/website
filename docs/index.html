@@ -688,6 +688,11 @@ nav a {
 
   <!-- All projects gallery -->
   <div class="project-gallery" id="all-projects"></div>
+  
+  <!-- View All button (shown only if >8 projects) -->
+   <div id="view-all-container" style="text-align: center; margin-top: 1rem;">
+    <button id="view-all-btn">View All Projects</button>
+  </div>
 
   <!-- Filtered projects gallery (hidden initially) -->
   <div class="project-gallery" id="filtered-projects" style="display: none;"></div>
@@ -1094,6 +1099,7 @@ navLinks.forEach(link => {
   }
 
   function renderProjects(projectsList, container) {
+    const toRender = limit ? projectsList.slice(0, limit) : projectsList;
     container.innerHTML = projectsList.map(createProjectHTML).join("");
   }
 
@@ -1134,8 +1140,20 @@ navLinks.forEach(link => {
   }
 
   // Initial rendering
-  renderProjects(projects, allProjectsDiv);
+  renderProjects(projects, allProjectsDiv, 8);
   renderAreaButtons();
+
+  // View All button logic
+  const viewAllBtn = document.getElementById("view-all-btn");
+viewAllBtn.addEventListener("click", () => {
+  renderProjects(projects, allProjectsDiv); // Show all
+  viewAllBtn.style.display = "none"; // Hide button
+});
+
+  // Optional: hide the "View All" button if not needed
+if (projects.length <= 8) {
+  document.getElementById("view-all-container").style.display = "none";
+}
 </script>
 
   
