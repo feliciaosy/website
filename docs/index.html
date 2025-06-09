@@ -1104,6 +1104,8 @@ navLinks.forEach(link => {
   }
 
   function renderAreaButtons() {
+    areaButtonsDiv.innerHTML = "";
+    
   const areas = [...new Set(projects.map(p => p.area))].sort();
 
   // Add an "All" button
