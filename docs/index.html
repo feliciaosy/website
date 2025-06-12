@@ -489,6 +489,13 @@ nav a {
 .whatsapp-float:hover {
   background-color: #128c4a;
 }
+
+    #view-all-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px; /* Optional: rounded corners */
+}
+    
 #area-buttons {
   margin-bottom: 20px;
 }
@@ -1191,18 +1198,21 @@ navLinks.forEach(link => {
     allBtn.textContent = "All";
     allBtn.classList.add("active");
     allBtn.onclick = () => {
-      setActiveButton(allBtn);
-      filteredProjectsDiv.innerHTML = "";
-      filteredProjectsDiv.style.display = "none";
-      allProjectsDiv.style.display = "grid";
+  setActiveButton(allBtn);
+  filteredProjectsDiv.innerHTML = "";
+  filteredProjectsDiv.style.display = "none";
+  allProjectsDiv.style.display = "grid";
 
-      if (showingAll) {
-        renderProjects(projects, allProjectsDiv); // show all projects
-        document.getElementById("view-all-container").style.display = "none";
-      } else {
-        renderProjects(projects, allProjectsDiv, 8); // show limited
-        document.getElementById("view-all-container").style.display = "block";
+  if (showingAll) {
+    renderProjects(projects, allProjectsDiv); // Show all
+    viewAllBtn.textContent = "View Less";
+  } else {
+    renderProjects(projects, allProjectsDiv, 8); // Show limited
+    viewAllBtn.textContent = "View All Projects";
   }
+
+  document.getElementById("view-all-container").style.display =
+    projects.length > 8 ? "block" : "none";
 };
 
     areaButtonsDiv.appendChild(allBtn);
@@ -1234,10 +1244,17 @@ navLinks.forEach(link => {
 
   // View All button logic
   const viewAllBtn = document.getElementById("view-all-btn");
-viewAllBtn.addEventListener("click", () => {
-  renderProjects(projects, allProjectsDiv); // Show all
-  viewAllBtn.style.display = "none"; // Hide button
-  showingAll = true;
+  
+  viewAllBtn.addEventListener("click", () => {
+  if (!showingAll) {
+    renderProjects(projects, allProjectsDiv); // Show all projects
+    viewAllBtn.textContent = "View Less Projects";
+    showingAll = true;
+  } else {
+    renderProjects(projects, allProjectsDiv, 8); // Show only first 8
+    viewAllBtn.textContent = "View All Projects";
+    showingAll = false;
+  }
 });
 
   // Optional: hide the "View All" button if not needed
