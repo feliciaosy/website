@@ -1218,16 +1218,25 @@ navLinks.forEach(link => {
     areaButtonsDiv.appendChild(allBtn);
 
   areas.forEach(area => {
-    const btn = document.createElement("button");
-    btn.textContent = area;
-    btn.onclick = () => {
-      setActiveButton(btn);
-      const filtered = projects.filter(p => p.area === area);
-      filteredProjectsDiv.innerHTML = ""; // Clear previous content
-      renderProjects(filtered, filteredProjectsDiv);
-      filteredProjectsDiv.style.display = "grid"; // Show filtered projects
-      allProjectsDiv.style.display = "none"; // Hide all projects
-    };
+  const btn = document.createElement("button");
+  btn.textContent = area;
+
+  btn.onclick = () => {
+    setActiveButton(btn);
+    const filtered = projects.filter(p => p.area === area);
+    
+    // Show only the filtered projects
+    filteredProjectsDiv.innerHTML = "";
+    renderProjects(filtered, filteredProjectsDiv);
+    filteredProjectsDiv.style.display = "grid";
+    allProjectsDiv.style.display = "none";
+
+    // ✅ Reset View All/View Less button
+    showingAll = false;
+    const viewAllBtn = document.getElementById("view-all-btn");
+    viewAllBtn.textContent = "View All Projects";
+    document.getElementById("view-all-container").style.display = "none";
+  };
     areaButtonsDiv.appendChild(btn);
   });
 }
