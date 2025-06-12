@@ -1163,6 +1163,8 @@ navLinks.forEach(link => {
   const filteredProjectsDiv = document.getElementById("filtered-projects");
   const areaButtonsDiv = document.getElementById("area-buttons");
 
+  let showingAll = false;
+  
   function createProjectHTML(project) {
     return `
       <a href="${project.link}" target="_blank" rel="noopener noreferrer">
@@ -1193,9 +1195,16 @@ navLinks.forEach(link => {
       filteredProjectsDiv.innerHTML = "";
       filteredProjectsDiv.style.display = "none";
       allProjectsDiv.style.display = "grid";
-      renderProjects(projects, allProjectsDiv, 8); // render limited list again
-      document.getElementById("view-all-container").style.display = "block"; // show button
-    };
+
+      if (showingAll) {
+        renderProjects(projects, allProjectsDiv); // show all projects
+        document.getElementById("view-all-container").style.display = "none";
+      } else {
+        renderProjects(projects, allProjectsDiv, 8); // show limited
+        document.getElementById("view-all-container").style.display = "block";
+  }
+};
+
     areaButtonsDiv.appendChild(allBtn);
 
   areas.forEach(area => {
@@ -1228,6 +1237,7 @@ navLinks.forEach(link => {
 viewAllBtn.addEventListener("click", () => {
   renderProjects(projects, allProjectsDiv); // Show all
   viewAllBtn.style.display = "none"; // Hide button
+  showingAll = true;
 });
 
   // Optional: hide the "View All" button if not needed
