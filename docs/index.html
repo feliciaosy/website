@@ -1256,13 +1256,18 @@ navLinks.forEach(link => {
   
   viewAllBtn.addEventListener("click", () => {
   if (!showingAll) {
-    renderProjects(projects, allProjectsDiv); // Show all projects
-    viewAllBtn.textContent = "View Less Projects";
+    // Show all projects
+    renderProjects(projects, allProjectsDiv);
+    viewAllBtn.textContent = "View Less";
     showingAll = true;
   } else {
-    renderProjects(projects, allProjectsDiv, 8); // Show only first 8
+    // Show only first 8 projects (collapse)
+    renderProjects(projects, allProjectsDiv, 8);
     viewAllBtn.textContent = "View All Projects";
     showingAll = false;
+
+    // Scroll smoothly to the top of the projects section
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
   }
 });
 
